@@ -1,16 +1,18 @@
 import {useState} from "react";
 import "./Counter.css"
 
-const Counter = () => {
+const Counter = (props) => {
 
     const [number, setNumber] = useState(0);
 
     const addNumber = () => {
         setNumber(number + 1);
+        props.changeSum(1);
     };
 
     const subNumber = () => {
         setNumber(number - 1);
+        props.changeSum(-1);
     };
 
     return (
