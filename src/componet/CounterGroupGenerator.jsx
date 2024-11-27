@@ -4,13 +4,17 @@ const CounterGroupGenerator = (props) => {
     const [size, setSize] = useState(0);
 
     const handleChange = (event) => {
-        setSize(event.target.value);
-        props.changeSize(event.target.value);
+        var newValue = event.target.value;
+        if (newValue < 0) {
+            newValue = 0;
+        } else if (newValue > 20) {
+            newValue = 20;
+        }
+        setSize(newValue);
     };
 
     const resetSize = () => {
-        setSize(0);
-        props.changeSize(0);
+        props.changeSize(size);
     };
 
     return (
